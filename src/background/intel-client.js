@@ -93,15 +93,18 @@
           if (!oResponse.ok) throw new Error('HTTP ' + oResponse.status);
           return oResponse.json();
         })
-        .then((aData) => {
-          if (Array.isArray(aData) && aData.length === 0) {
-            if (oStateRef) {
-              oStateRef.aBlocklist = [];
-              oStateRef.nLastFetch = Date.now();
-            }
-            return aData;
+        .then((oData) => {
+          // The endpoint returns { reports: [], total_reports: 0, updated_at: ... }
+          // Extract the reports array
+          let aData = [];
+          if (oData && Array.isArray(oData.reports)) {
+            aData = oData.reports;
+          } else if (Array.isArray(oData)) {
+            aData = oData;
+          } else {
+            throw new Error('Invalid data format');
           }
-          if (!Array.isArray(aData)) throw new Error('Invalid data format');
+
           if (oStateRef) {
             oStateRef.aBlocklist = aData;
             oStateRef.nLastFetch = Date.now();
