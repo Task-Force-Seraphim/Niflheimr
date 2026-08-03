@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niflheim - Report Preview</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: rgba(11, 18, 25, 0.92);
+      color: #e0f0ff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .oTerminal {
+      background: #162230;
+      border-radius: 12px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      border: 1px solid #00d4ff33;
+    }
+
+    .oTerminalHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid #00d4ff22;
+      flex-shrink: 0;
+    }
+
+    .oTerminalTitle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #00d4ff;
+    }
+
+    .oTerminalTitle img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0b1219;
+      padding: 2px;
+    }
+
+    .oTerminalClose {
+      background: none;
+      border: none;
+      color: #7b9cb5;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 0 6px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .oTerminalClose:hover {
+      color: #ff6b6b;
+    }
+
+    .oTerminalBody {
+      padding: 20px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .oTerminalLabel {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #7b9cb5;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .oTerminalJson {
+      background: #0b1219;
+      border-radius: 6px;
+      padding: 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #00d4ff1a;
+      color: #e0f0ff;
+      line-height: 1.6;
+    }
+
+    .oTerminalJson::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .oTerminalJson::-webkit-scrollbar-thumb {
+      background: #006b8f;
+      border-radius: 2px;
+    }
+
+    .oTerminalFooter {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      padding: 16px 20px;
+      border-top: 1px solid #00d4ff22;
+      flex-shrink: 0;
+    }
+
+    .oTerminalButton {
+      padding: 8px 24px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .oTerminalButton:active {
+      transform: scale(0.96);
+    }
+
+    .oTerminalButtonCancel {
+      background: transparent;
+      color: #7b9cb5;
+      border: 1px solid #7b9cb5;
+    }
+
+    .oTerminalButtonCancel:hover {
+      background: #7b9cb522;
+    }
+
+    .oTerminalButtonConfirm {
+      background: #00d4ff;
+      color: #0b1219;
+    }
+
+    .oTerminalButtonConfirm:hover {
+      background: #00b8e6;
+    }
+
+    .oTerminalStatus {
+      font-size: 13px;
+      color: #7b9cb5;
+      margin-right: auto;
+    }
+
+    .oTerminalStatus.oSuccess {
+      color: #51cf66;
+    }
+
+    .oTerminalStatus.oError {
+      color: #ff6b6b;
+    }
+
+    .oTerminalHidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="oTerminal" id="oTerminal">
+    <header class="oTerminalHeader">
+      <div class="oTerminalTitle">
+        <img src="/icons/icon.png" alt="Niflheim">
+        Report Preview
+      </div>
+      <button class="oTerminalClose" id="bTerminalClose" title="Close">&times;</button>
+    </header>
+
+    <div class="oTerminalBody">
+      <div class="oTerminalLabel">Outgoing Report (JSON)</div>
+      <pre class="oTerminalJson" id="oTerminalJson">{\n  "loading": "..."\n}</pre>
+      <div class="oTerminalStatus" id="oTerminalStatus">Review before sending</div>
+    </div>
+
+    <footer class="oTerminalFooter">
+      <button class="oTerminalButton oTerminalButtonCancel" id="bTerminalCancel">Cancel</button>
+      <button class="oTerminalButton oTerminalButtonConfirm" id="bTerminalConfirm">Send Report</button>
+    </footer>
+  </div>
+
+  <script src="terminal.js"></script>
+</body>
+</html>

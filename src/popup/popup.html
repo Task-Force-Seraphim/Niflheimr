@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niflheim</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="oContainer">
+    <header class="oHeader">
+      <img src="/icons/icon.png" alt="Niflheim" class="oIcon">
+      <h1 class="oTitle">Niflheim</h1>
+      <span class="oVersion">v1.0.0</span>
+    </header>
+
+    <main class="oMain">
+      <!-- Protection Toggle -->
+      <section class="oSection oProtection">
+        <label class="oLabel" for="bProtectionEnabled">Protection</label>
+        <div class="oToggleWrapper">
+          <input type="checkbox" id="bProtectionEnabled" class="oToggle">
+          <label for="bProtectionEnabled" class="oToggleLabel"></label>
+        </div>
+      </section>
+
+      <!-- Thread Count -->
+      <section class="oSection oThreadCount">
+        <label class="oLabel" for="nThreadCount">Threads: <span id="nThreadCountDisplay">4</span></label>
+        <input type="range" id="nThreadCount" min="1" max="8" value="4" step="1" class="oSlider">
+        <div class="oRangeLabels">
+          <span>1</span>
+          <span>8</span>
+        </div>
+      </section>
+
+      <!-- Update Frequency -->
+      <section class="oSection oUpdateFrequency">
+        <label class="oLabel" for="sUpdateFrequency">Update Frequency</label>
+        <select id="sUpdateFrequency" class="oSelect">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </section>
+
+      <!-- Sharing Preference -->
+      <section class="oSection oSharing">
+        <label class="oLabel">Sharing</label>
+        <div class="oRadioGroup">
+          <label class="oRadioLabel">
+            <input type="radio" name="bShareEnabled" value="true" class="oRadio"> Enabled
+          </label>
+          <label class="oRadioLabel">
+            <input type="radio" name="bShareEnabled" value="false" class="oRadio" checked> Disabled
+          </label>
+        </div>
+      </section>
+
+      <!-- Country Selection -->
+      <section class="oSection oCountry">
+        <label class="oLabel" for="sCountry">Country (for identities)</label>
+        <select id="sCountry" class="oSelect">
+          <option value="us">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="ca">Canada</option>
+          <option value="au">Australia</option>
+          <option value="de">Germany</option>
+          <option value="fr">France</option>
+          <option value="jp">Japan</option>
+          <option value="cn">China</option>
+          <option value="in">India</option>
+          <option value="mx">Mexico</option>
+          <option value="ru">Russia</option>
+        </select>
+      </section>
+
+      <!-- Activity Log -->
+      <section class="oSection oActivityLog">
+        <label class="oLabel">Activity Log</label>
+        <div id="aActivityLog" class="oLogContainer">
+          <div class="oLogEntry oLogPlaceholder">No activity yet</div>
+        </div>
+      </section>
+
+      <!-- Manual Action Buttons -->
+      <section class="oSection oActions">
+        <button id="bFetchBlocklist" class="oButton oButtonSecondary">Update Blocklist</button>
+        <button id="bPoisonTab" class="oButton oButtonPrimary">Poison Current Tab</button>
+      </section>
+    </main>
+
+    <footer class="oFooter">
+      <span>Task Force Seraphim</span>
+      <a href="https://niflheimr.netlify.app" target="_blank">Dashboard</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

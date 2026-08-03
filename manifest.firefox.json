@@ -1,0 +1,58 @@
+{
+  "manifest_version": 2,
+  "name": "Niflheim",
+  "version": "1.0.0",
+  "description": "Blind surveillance. Poison their data.",
+  "author": "Task Force Seraphim",
+  "homepage_url": "https://niflheimr.netlify.app",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "webNavigation",
+    "notifications",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["src/background/index.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/content/debug.js",
+        "src/content/opfs-limiter.js",
+        "src/content/timer-jitter.js",
+        "src/content/fingerprint-detector.js",
+        "src/content/permission-checker.js",
+        "src/content/detector.js",
+        "src/content/link-walker.js",
+        "src/content/form-poisoner.js",
+        "src/content/cookie-poisoner.js",
+        "src/content/index.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "web_accessible_resources": [
+    "src/ui/terminal.html",
+    "src/ui/terminal.js",
+    "src/ui/alerts.js",
+    "data/identities.json",
+    "data/trackers.json"
+  ]
+}

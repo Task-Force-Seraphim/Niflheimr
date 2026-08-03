@@ -1,0 +1,27 @@
+{
+  "name": "niflheim",
+  "version": "1.0.0",
+  "description": "Browser extension against FROST, tracking, and surveillance",
+  "main": "src/background/index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/task-force-seraphim/niflheim.git"
+  },
+  "author": "Task Force Seraphim",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/task-force-seraphim/niflheim/issues"
+  },
+  "homepage": "https://niflheimr.netlify.app",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}

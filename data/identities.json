@@ -1,0 +1,61 @@
+{
+  "profiles": [
+    {
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "phone": "+1 (555) 123-4567",
+      "address": {
+        "street": "123 Maple St",
+        "city": "Springfield",
+        "state_name": "Illinois",
+        "state_abbreviation": "IL",
+        "country": "United States",
+        "zip": "62701"
+      },
+      "dob": { "date": "1985-04-12", "age": 39 },
+      "blood_type": "A+",
+      "credit_card": null,
+      "height": { "cm": 165, "feet": 5, "inches": 5, "m": 1.65 },
+      "weight": { "kg": 60, "lbs": 132 },
+      "national_id": "123-45-6789"
+    },
+    {
+      "name": "Bob Smith",
+      "email": "bob.smith@example.com",
+      "phone": "+1 (555) 987-6543",
+      "address": {
+        "street": "456 Oak Ave",
+        "city": "Metropolis",
+        "state_name": "New York",
+        "state_abbreviation": "NY",
+        "country": "United States",
+        "zip": "10001"
+      },
+      "dob": { "date": "1990-11-23", "age": 34 },
+      "blood_type": "O-",
+      "credit_card": null,
+      "height": { "cm": 180, "feet": 5, "inches": 11, "m": 1.80 },
+      "weight": { "kg": 78, "lbs": 172 },
+      "national_id": "987-65-4321"
+    },
+    {
+      "name": "Carol White",
+      "email": "carol.white@example.com",
+      "phone": "+1 (555) 456-7890",
+      "address": {
+        "street": "789 Pine Ln",
+        "city": "Gotham",
+        "state_name": "New Jersey",
+        "state_abbreviation": "NJ",
+        "country": "United States",
+        "zip": "07001"
+      },
+      "dob": { "date": "1978-07-19", "age": 46 },
+      "blood_type": "B+",
+      "credit_card": null,
+      "height": { "cm": 170, "feet": 5, "inches": 7, "m": 1.70 },
+      "weight": { "kg": 68, "lbs": 150 },
+      "national_id": "456-78-9012"
+    }
+  ]
+}
